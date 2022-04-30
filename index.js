@@ -7,9 +7,11 @@ dotenv.config();
 const utopiaDB = require("./utils/db.util");
 // Configs
 const loggerConfig = require('./configs/logger.config');
+const viewConfig = require('./configs/view.config');
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
+viewConfig(UtopiaApp);
 
 const debugLog = debug('utopia:index');
 
