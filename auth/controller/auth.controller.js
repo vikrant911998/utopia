@@ -1,6 +1,6 @@
 
-exports.getRegisterPage = (req, res, next) => {
-  res.render('auth/register',{
-    pageTitle: 'Register | Utopia',
+exports.getAuthenticationPage = (req, res, next) => {
+  res.render('auth/auth',{
+    pageTitle: 'Authentication | Utopia',
   });
 };

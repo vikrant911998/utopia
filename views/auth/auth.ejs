@@ -1,0 +1,66 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/auth/auth.css">
+  <script src="/js/jquery.js"></script>
+</head>
+<body>
+  <div class="wrapper utopia-login">
+    <div class="left">
+      <h3>Utopia</h3>
+      <img src="/images/auth.png" alt="Rocket_image" />
+    </div>
+    <div class="right">
+      <div class="tabs">
+        <ul>
+          <li class="register_li">Register</li>
+          <li class="login_li">login</li>
+        </ul>
+      </div>
+
+      <div class="register">
+        <div class="input_field">
+          <input type="email" placeholder="E-mail" class="input" />
+        </div>
+        <div class="input_field">
+          <input type="password" placeholder="Password" class="input" />
+        </div>
+        <div class="input_field">
+          <input
+            type="password"
+            placeholder="Confirm-Password"
+            class="input"
+          />
+        </div>
+        <div class="btn"><a href="#">Register</a></div>
+      </div>
+
+      <div class="login">
+        <div class="input_field">
+          <input type="text" placeholder="E-mail" class="input" />
+        </div>
+        <div class="input_field">
+          <input type="password" placeholder="Password" class="input" />
+        </div>
+        <div class="btn"><a href="#">Login</a></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(".login").hide();
+    $(".register_li").addClass("active");
+
+    $(".login_li").click(function () {
+      $(this).addClass("active");
+      $(".register_li").removeClass("active");
+      $(".login").show();
+      $(".register").hide();
+    });
+
+    $(".register_li").click(function () {
+      $(this).addClass("active");
+      $(".login_li").removeClass("active");
+      $(".register").show();
+      $(".login").hide();
+    });
+  </script>
+
+<%- include('../includes/footer.ejs')%>

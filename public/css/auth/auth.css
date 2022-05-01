@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background: #e3e6f3;
+}
+
+.wrapper.utopia-login {
+  display: flex;
+  max-width: 560px;
+  width: 100%;
+  height: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper.utopia-login .left,
+.wrapper.utopia-login .right {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+}
+
+.wrapper.utopia-login .left {
+  background: #088178;
+}
+
+.wrapper.utopia-login .left h3 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.wrapper.utopia-login .left img {
+  display: block;
+  width: 220px;
+  margin: 25px auto 0;
+}
+
+.wrapper.utopia-login .right {
+  background: #fff;
+}
+
+.wrapper.utopia-login .right .tabs ul {
+  text-align: center;
+}
+
+.wrapper.utopia-login .right .tabs ul li {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #088178;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.wrapper.utopia-login .right .tabs ul li.active {
+  border-bottom: 2px solid #088178;
+}
+
+.wrapper.utopia-login .right .register,
+.wrapper.utopia-login .right .login {
+  margin-top: 20px;
+}
+
+.wrapper.utopia-login .right .input_field {
+  margin-bottom: 15px;
+}
+
+.wrapper.utopia-login .right .input_field .input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 0;
+  font-size: 12px;
+  background: #ecebeb;
+}
+
+.wrapper.utopia-login .right .btn {
+  margin-top: 20px;
+  background: #088178;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.wrapper.utopia-login .right .btn a {
+  color: #fff;
+  display: block;
+  font-size: 14px;
+}
