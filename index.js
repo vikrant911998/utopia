@@ -15,6 +15,12 @@ viewConfig(UtopiaApp);
 
 const debugLog = debug('utopia:index');
 
+UtopiaApp.get('/',(req,res)=>{
+  res.render('index',{
+    pageTitle: 'Utopia'
+  });
+});
+
 utopiaDB
   .sync()
   .then(() => {
