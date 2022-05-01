@@ -98,9 +98,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
-.wrapper.utopia-login .right .btn a {
+.wrapper.utopia-login .right .btn span {
   color: #fff;
   display: block;
   font-size: 14px;

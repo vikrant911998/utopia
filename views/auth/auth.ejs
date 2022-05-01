@@ -17,20 +17,25 @@
       </div>
 
       <div class="register">
-        <div class="input_field">
-          <input type="email" placeholder="E-mail" class="input" />
-        </div>
-        <div class="input_field">
-          <input type="password" placeholder="Password" class="input" />
-        </div>
-        <div class="input_field">
-          <input
-            type="password"
-            placeholder="Confirm-Password"
-            class="input"
-          />
-        </div>
-        <div class="btn"><a href="#">Register</a></div>
+        <form action="/auth/register" method="post">
+          <div class="input_field">
+            <input type="email" placeholder="E-mail" name="email" class="input" />
+          </div>
+          <div class="input_field">
+            <input type="password" placeholder="Password" name="password" class="input" />
+          </div>
+          <div class="input_field">
+            <input
+              type="password"
+              name="confirm_password"
+              placeholder="Confirm-Password"
+              class="input"
+            />
+          </div>
+          <button class="btn">
+            <span>Register</span>
+          </button>
+        </form>
       </div>
 
       <div class="login">
@@ -40,13 +45,12 @@
         <div class="input_field">
           <input type="password" placeholder="Password" class="input" />
         </div>
-        <div class="btn"><a href="#">Login</a></div>
+        <button class="btn"><span>Login</span></button>
       </div>
     </div>
   </div>
   <script>
     $(".login").hide();
-    $(".register_li").addClass("active");
 
     $(".login_li").click(function () {
       $(this).addClass("active");
@@ -61,6 +65,14 @@
       $(".register").show();
       $(".login").hide();
     });
-  </script>
+
+    const isRegister = JSON.parse("<%=isRegister %>");
+    if(isRegister){
+      $(".register_li").trigger('click');
+    }
+    else{
+      $(".login_li").trigger('click');
+    }
+    </script>
 
 <%- include('../includes/footer.ejs')%>
