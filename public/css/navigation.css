@@ -13,9 +13,9 @@
   left: 0;
 }
 
-#header img {
+/* #header img {
   width: 85px;
-}
+} */
 
 #navbar {
   display: flex;
@@ -35,6 +35,7 @@
   font-weight: 600;
   color: #1a1a1a;
   transition: 0.3 ease;
+  font-family: Spartan;
 }
 
 #navbar li a:hover,

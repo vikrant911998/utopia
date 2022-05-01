@@ -8,16 +8,20 @@ const utopiaDB = require("./utils/db.util");
 // Configs
 const loggerConfig = require('./configs/logger.config');
 const viewConfig = require('./configs/view.config');
+// Routes
+const authRoutes = require('./auth/routes/auth.route');
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
 viewConfig(UtopiaApp);
+UtopiaApp.use('/auth', authRoutes);
 
 const debugLog = debug('utopia:index');
 
 UtopiaApp.get('/',(req,res)=>{
   res.render('index',{
-    pageTitle: 'Utopia'
+    pageTitle: 'Utopia',
+    path: '/'
   });
 });
 
