@@ -28,11 +28,9 @@ exports.postLogin = async (req, res) => {
       );
       debugLog("Login password check: ", passwordCheck);
       if (passwordCheck) {
-        res.render("index", {
-          pageTitle: "Utopia",
-          path: "/",
-          isLogin: true,
-        });
+        req.session.isLogin = true;
+        req.session.user = user;
+        res.redirect("/");
       } else {
         res.render("auth/auth", {
           pageTitle: "Authentication | Utopia",
