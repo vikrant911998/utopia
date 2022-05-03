@@ -19,10 +19,10 @@
       <div class="register">
         <form action="/auth/register" method="post">
           <div class="input_field">
-            <input type="email" placeholder="E-mail" name="email" class="input" />
+            <input type="email" required placeholder="E-mail" name="email" class="input" />
           </div>
           <div class="input_field">
-            <input type="password" placeholder="Password" name="password" class="input" />
+            <input type="password" required placeholder="Password" name="password" class="input" />
           </div>
           <div class="input_field">
             <input
@@ -30,6 +30,7 @@
               name="confirm_password"
               placeholder="Confirm-Password"
               class="input"
+              required
             />
           </div>
           <button class="btn">
@@ -39,13 +40,15 @@
       </div>
 
       <div class="login">
-        <div class="input_field">
-          <input type="text" placeholder="E-mail" class="input" />
-        </div>
-        <div class="input_field">
-          <input type="password" placeholder="Password" class="input" />
-        </div>
-        <button class="btn"><span>Login</span></button>
+        <form action="/auth/login" method="post">
+          <div class="input_field">
+            <input type="email" name="email" placeholder="E-mail" class="input" required />
+          </div>
+          <div class="input_field">
+            <input type="password" name="password" placeholder="Password" class="input" required />
+          </div>
+          <button class="btn"><span>Login</span></button>
+        </form>
       </div>
     </div>
   </div>
@@ -66,6 +69,14 @@
       $(".login").hide();
     });
 
+    const isError = JSON.parse("<%=isError %>");
+    if(isError){
+      const errorMsg = "<%=errorMsg %>";
+      if(errorMsg){
+        alert(errorMsg);
+      }
+    }
+
     const isRegister = JSON.parse("<%=isRegister %>");
     if(isRegister){
       $(".register_li").trigger('click');
@@ -73,6 +84,6 @@
     else{
       $(".login_li").trigger('click');
     }
-    </script>
+  </script>
 
 <%- include('../includes/footer.ejs')%>
