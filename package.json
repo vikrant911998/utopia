@@ -21,6 +21,7 @@
     "express-session": "^1.17.2",
     "express-winston": "^4.2.0",
     "mysql2": "^2.3.3",
+    "nocache": "^3.0.3",
     "sequelize": "^6.19.0",
     "winston": "^3.7.2"
   },

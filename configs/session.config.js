@@ -2,9 +2,11 @@ const session = require("express-session");
 const SessionStore = require("connect-session-sequelize")(session.Store);
 const utopiaDB = require("../utils/db.util");
 
+const SESSION_EXPIRATION_TIME = 60 * 100;
+
 const utopiaSessionStore = new SessionStore({
   db: utopiaDB,
-  // table: "user_sessions",
+  expiration: SESSION_EXPIRATION_TIME,
 });
 
 function sessionConfig(app) {
@@ -14,6 +16,7 @@ function sessionConfig(app) {
       store: utopiaSessionStore,
       resave: false,
       saveUninitialized: false,
+      cookie: { maxAge: SESSION_EXPIRATION_TIME },
     })
   );
 }

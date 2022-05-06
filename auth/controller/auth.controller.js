@@ -28,6 +28,8 @@ exports.postLogin = async (req, res) => {
       );
       debugLog("Login password check: ", passwordCheck);
       if (passwordCheck) {
+        debugLog("Password Check Successful");
+        console.log("Password Check Successful");
         req.session.isLogin = true;
         req.session.user = user;
         res.redirect("/");
@@ -85,4 +87,11 @@ exports.postRegister = async (req, res) => {
       errorMsg: "Some Error Occured",
     });
   }
+};
+
+exports.postLogout = async (req, res) => {
+  req.session.destroy((err) => {
+    console.log(err);
+    res.redirect("/auth");
+  });
 };
