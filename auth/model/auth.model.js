@@ -8,8 +8,19 @@ const UserModel = utopiaDB.define('users', {
     allowNull: false,
     primaryKey: true,
   },
-  email: Sequelize.STRING,
-  password: Sequelize.STRING,
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    default: false,
+  }
 });
 
 module.exports = UserModel;
