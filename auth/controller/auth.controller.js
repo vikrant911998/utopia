@@ -62,12 +62,13 @@ exports.postLogin = async (req, res) => {
 exports.postRegister = async (req, res) => {
   const t = await utopiaDB.transaction();
   try {
-    const { email, password } = req.body;
+    const { email, password, type } = req.body;
     const hashedPassword = await authService.hashPassword(password);
     await UserModel.create(
       {
         email: email,
         password: hashedPassword,
+        isAdmin: type === '2' ? false : true,
       },
       { transaction: t }
     );
