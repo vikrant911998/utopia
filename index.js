@@ -11,22 +11,16 @@ const viewConfig = require("./configs/view.config");
 const { sessionConfig, sessionStore } = require("./configs/session.config");
 // Routes
 const authRoutes = require("./auth/routes/auth.route");
+const productRoutes = require('./product/routes/product.route');
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
 viewConfig(UtopiaApp);
 sessionConfig(UtopiaApp);
 UtopiaApp.use("/auth", authRoutes);
+UtopiaApp.use(productRoutes);
 
 const debugLog = debug("utopia:index");
-
-UtopiaApp.get("/", (req, res) => {
-  res.render("index", {
-    pageTitle: "Utopia",
-    path: "/",
-    isLogin: req.session.isLogin,
-  });
-});
 
 utopiaDB
   .sync({
