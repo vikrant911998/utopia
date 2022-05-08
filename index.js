@@ -9,6 +9,7 @@ const utopiaDB = require("./utils/db.util");
 const loggerConfig = require("./configs/logger.config");
 const viewConfig = require("./configs/view.config");
 const { sessionConfig, sessionStore } = require("./configs/session.config");
+const fileUploadConfig = require("./configs/fileUpload.config");
 // Routes
 const authRoutes = require("./auth/routes/auth.route");
 const productRoutes = require("./product/routes/product.route");
@@ -20,6 +21,7 @@ const UtopiaApp = express();
 loggerConfig(UtopiaApp);
 viewConfig(UtopiaApp);
 sessionConfig(UtopiaApp);
+fileUploadConfig(UtopiaApp);
 UtopiaApp.use("/auth", authRoutes);
 UtopiaApp.use(productRoutes);
 

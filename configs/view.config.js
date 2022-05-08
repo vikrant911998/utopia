@@ -11,6 +11,7 @@ function viewConfig(app) {
   app.disable('view cache');
   app.use(express.urlencoded({ extended: false }));
   app.use(express.static(path.join(rootDirPath, "public")));
+  app.use(express.static(path.join(rootDirPath, "product_images")));
 }
 
 module.exports = viewConfig;
