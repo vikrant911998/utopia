@@ -2,7 +2,7 @@ const session = require("express-session");
 const SessionStore = require("connect-session-sequelize")(session.Store);
 const utopiaDB = require("../utils/db.util");
 
-const SESSION_EXPIRATION_TIME = 60 * 100;
+const SESSION_EXPIRATION_TIME = 60 * 60 * 1000;
 
 const utopiaSessionStore = new SessionStore({
   db: utopiaDB,

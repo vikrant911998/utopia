@@ -136,4 +136,10 @@ body {
   transition: 0.3 ease;
   font-family: Spartan;
   border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#navbar li button:hover{
+  color: #088178; 
 }
