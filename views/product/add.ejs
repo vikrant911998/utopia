@@ -1,0 +1,36 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/products/add.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs')%>
+
+  <div class="add-product-wrapper">
+    <div class="product-box">
+      <h3>PRODUCT DETAILS</h3>
+      <form>
+        <div class="prod-box">
+          <input type="text" name="title" required />
+          <label>Title</label>
+        </div>
+        <div class="prod-box">
+          <input type="file" class="file" name="image"/>
+          <label>Image</label>
+        </div>
+        <div class="prod-box">
+          <input type="text" name="brand" required />
+          <label>Brand Name</label>
+        </div>
+        <div class="prod-box">
+          <input type="number" name="price" required />
+          <label>Price</label>
+        </div>
+        <div class="prod-box">
+          <textarea name="description" id="" cols="30" rows="5" required></textarea>
+          <label>Description</label>
+        </div>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('../includes/footer.ejs')%>

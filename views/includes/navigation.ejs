@@ -7,8 +7,8 @@
       </li>
 
       <% if(user && user.isAdmin) { %>
-      <li><a href="/product/add">Add Product</a></li>
-      <li><a href="/product/list">Product List</a></li>
+      <li><a class="<%= path === '/product/add' ? 'active' : '' %>" href="/product/add">Add Product</a></li>
+      <li><a class="<%= path === '/product/list' ? 'active' : '' %>" href="/product/list">Product List</a></li>
       <% } else { %>
       <li><a href="/shop">Shop</a></li>
       <% } %>

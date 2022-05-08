@@ -6,3 +6,12 @@ exports.getIndexPage = (req, res) => {
     user: req.session.user,
   });
 };
+
+exports.getAddProductPage = (req, res) => {
+  res.render("product/add", {
+    pageTitle: "Add Product | Utopia",
+    path: "/product/add",
+    isLogin: req.session.isLogin,
+    user: req.session.user,
+  });
+};
