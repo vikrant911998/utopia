@@ -3,5 +3,6 @@ exports.getIndexPage = (req, res) => {
     pageTitle: "Utopia",
     path: "/",
     isLogin: req.session.isLogin,
+    user: req.session.user,
   });
 };

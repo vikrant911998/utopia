@@ -11,7 +11,10 @@ const viewConfig = require("./configs/view.config");
 const { sessionConfig, sessionStore } = require("./configs/session.config");
 // Routes
 const authRoutes = require("./auth/routes/auth.route");
-const productRoutes = require('./product/routes/product.route');
+const productRoutes = require("./product/routes/product.route");
+// Models
+const User = require("./auth/model/auth.model");
+const Product = require("./product/model/product.model");
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
@@ -21,6 +24,9 @@ UtopiaApp.use("/auth", authRoutes);
 UtopiaApp.use(productRoutes);
 
 const debugLog = debug("utopia:index");
+
+Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+User.hasMany(Product);
 
 utopiaDB
   .sync({
