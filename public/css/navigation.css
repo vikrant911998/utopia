@@ -143,3 +143,7 @@ body {
 #navbar li button:hover{
   color: #088178; 
 }
+
+#navbar li .auth {
+  font-size: 20px;
+}

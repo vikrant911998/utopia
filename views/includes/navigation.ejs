@@ -5,26 +5,35 @@
       <li>
         <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
       </li>
+
       <% if(user && user.isAdmin) { %>
       <li><a href="/product/add">Add Product</a></li>
       <li><a href="/product/list">Product List</a></li>
       <% } else { %>
       <li><a href="/shop">Shop</a></li>
       <% } %>
+
       <li><a href="/blog">Blog</a></li>
       <li><a href="/about">About</a></li>
+
+      <% if(user && !user.isAdmin) { %>
+      <li>
+        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+      </li>
+      <li>
+        <a href="/wishlist"><i class="fas fa-heart"></i></a>
+      </li>
+      <% }%>
+
       <% if(!isLogin) { %>
-      <li><a href="/auth">Login / Register</a></li>
+      <li><a class="auth" href="/auth"><i class="fas fa-sign-in-alt"></i></a></li>
       <% } else { %>
       <li>
         <form action="/auth/logout" method="post">
-          <button>Logout</button>
+          <button class="auth"><i class="fas fa-sign-out-alt"></i></button>
         </form>
       </li>
       <% } %>
-      <li>
-        <a href=""><i class="fas fa-shopping-cart"></i></a>
-      </li>
     </ul>
   </div>
 </section>
