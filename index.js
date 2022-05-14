@@ -30,6 +30,13 @@ const debugLog = debug("utopia:index");
 Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);
 
+UtopiaApp.use((req, res) => {
+  res.render('error', {
+    pageTitle: 'Error 404 | Utopia',
+    user: undefined,
+  });
+});
+
 utopiaDB
   .sync({
     // force: true,
