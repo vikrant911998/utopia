@@ -10,7 +10,13 @@
     <h1>On all products</h1>
     <p>Save more with coupons & up to 70% off!</p>
     <% if(user && !user.isAdmin) { %>
-    <button>Shop now</button>
+      <form action="/shop" method="get">
+        <button>Shop now</button>
+      </form>
+    <% } else if(!user) {%>
+      <form action="/shop" method="get">
+        <button>Shop now</button>
+      </form>
     <% } %>
   </section>
 
