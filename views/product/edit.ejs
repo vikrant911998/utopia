@@ -1,0 +1,43 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/products/add.css">
+  <style>
+    .add-product-wrapper{
+      height: 135vh;
+    }
+  </style>
+</head>
+<body>
+  <%- include('../includes/navigation.ejs')%>
+
+  <div class="add-product-wrapper">
+    <div class="product-box">
+      <h3>PRODUCT DETAILS</h3>
+      <form action="/product/update" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="id" value="<%=product.id%>" >
+        <div class="prod-box">
+          <input type="text" name="title" required value="<%=product.title%>" />
+          <label>Title</label>
+        </div>
+        <div class="prod-box">
+          <img src="/<%=product.image%>" alt="" height="300">
+          <input type="file" class="file" name="image"/>
+          <label>New Image</label>
+        </div>
+        <div class="prod-box">
+          <input type="text" name="brand" required value="<%=product.brand%>"/>
+          <label>Brand Name</label>
+        </div>
+        <div class="prod-box">
+          <input type="number" name="price" required value="<%=product.price%>"/>
+          <label>Price</label>
+        </div>
+        <div class="prod-box">
+          <textarea name="description" id="" cols="30" rows="5" required><%=product.description%></textarea>
+          <label>Description</label>
+        </div>
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('../includes/footer.ejs')%>
