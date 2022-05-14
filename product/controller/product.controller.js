@@ -101,7 +101,7 @@ exports.postAddProduct = async (req, res) => {
 exports.postUpdateProduct = async (req, res) => {
   const { title, brand, price, description, id } = req.body;
   const { filename: image } = req.file ? req.file: {};
-  console.log(image);
+  // console.log(image);
   const newProductObj = {
     title,
     brand,

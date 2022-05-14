@@ -11,19 +11,40 @@ const {
 const {
   registerOnHeadersListener,
 } = require("../../common/middleware/common.middleware");
+const { isAuth } = require("../../common/middleware/is-auth.middleware");
 
 productRouter.get("/", registerOnHeadersListener, getIndexPage);
 
-productRouter.get("/product/add", registerOnHeadersListener, getAddProductPage);
+productRouter.get(
+  "/product/add",
+  registerOnHeadersListener,
+  isAuth,
+  getAddProductPage
+);
 
 productRouter.get("/product/edit", registerOnHeadersListener, getEditProduct);
 
-productRouter.get("/product/list", registerOnHeadersListener, getProductListPage);
+productRouter.get(
+  "/product/list",
+  registerOnHeadersListener,
+  isAuth,
+  getProductListPage
+);
 
 productRouter.post("/product/add", registerOnHeadersListener, postAddProduct);
 
-productRouter.post("/product/delete", registerOnHeadersListener, postDeleteProduct);
+productRouter.post(
+  "/product/delete",
+  registerOnHeadersListener,
+  isAuth,
+  postDeleteProduct
+);
 
-productRouter.post("/product/update", registerOnHeadersListener, postUpdateProduct);
+productRouter.post(
+  "/product/update",
+  registerOnHeadersListener,
+  isAuth,
+  postUpdateProduct
+);
 
 module.exports = productRouter;
