@@ -8,26 +8,32 @@
   </section>
 
   <section id="product1" class="section-p1">
-    <div class="pro-container">
-      <% for( const item of products) { %>
-        <div class="pro">
-          <form method="post">
-            <img src="/<%=item.image%>" style="max-height: 270px; height: 270px;" alt="" />
-            <div class="des">
-              <span><%=item.brand%></span>
-              <h5><%=item.title%></h5>
-              <h4>$<%=item.price%></h4>
-            </div>
-            <input type="hidden" name="productId" value="<%=item.id%>">
-            <div class="btn-wapper">
-              <input type="hidden" name="id" value="<%=item.id%>" >
-              <a href="/product/edit?id=<%=item.id%>">Edit</a>
-              <button type="submit" formaction="/product/delete">Delete</button>
-            </div>
-          </form>
+    <% if(products.length > 0) { %>
+      <div class="pro-container">
+        <% for( const item of products) { %>
+          <div class="pro">
+            <form method="post">
+              <img src="/<%=item.image%>" style="max-height: 270px; height: 270px;" alt="" />
+              <div class="des">
+                <span><%=item.brand%></span>
+                <h5><%=item.title%></h5>
+                <h4>&#x20B9; <%=item.price%></h4>
+              </div>
+              <input type="hidden" name="productId" value="<%=item.id%>">
+              <div class="btn-wapper">
+                <input type="hidden" name="id" value="<%=item.id%>" >
+                <a href="/product/edit?id=<%=item.id%>">Edit</a>
+                <button type="submit" formaction="/product/delete">Delete</button>
+              </div>
+            </form>
+          </div>
+        <% } %>
+      </div>
+      <% } else if(products.length == 0) { %>
+        <div class="empty-list">
+          <h2>No Products in the List</h2>
         </div>
       <% } %>
-    </div>
   </section>
   
 <%- include('../includes/footer.ejs')%>
