@@ -2,7 +2,11 @@ const authRouter = require("express").Router();
 const authController = require("../controller/auth.controller");
 const authMiddleware = require("../middleware/auth.middleware");
 
-authRouter.get("/", authController.getAuthenticationPage);
+authRouter.get(
+  "/",
+  authMiddleware.isAlreadyLogin,
+  authController.getAuthenticationPage
+);
 
 authRouter.post(
   "/register",

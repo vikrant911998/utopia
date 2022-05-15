@@ -28,3 +28,10 @@ exports.checkIfEmailAlreadyExists = async (req, res, next) => {
     next();
   }
 };
+
+exports.isAlreadyLogin = (req, res, next) => {
+  if(req.session && req.session.isLogin){
+    return res.redirect('/');
+  }
+  next();
+};

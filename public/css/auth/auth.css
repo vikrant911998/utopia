@@ -43,6 +43,10 @@ body {
   color: #fff;
   font-size: 20px;
 }
+.wrapper.utopia-login .left h3 a {
+  color: white;
+  font-weight: 700;
+}
 
 .wrapper.utopia-login .left img {
   display: block;
