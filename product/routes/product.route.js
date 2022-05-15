@@ -16,7 +16,7 @@ const { isAuth } = require("../../common/middleware/is-auth.middleware");
 
 productRouter.get("/", registerOnHeadersListener, getIndexPage);
 
-productRouter.get("/shop" , registerOnHeadersListener, getShopPage);
+productRouter.get("/product/shop" , registerOnHeadersListener, getShopPage);
 
 productRouter.get(
   "/product/add",

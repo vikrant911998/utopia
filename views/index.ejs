@@ -14,7 +14,7 @@
         <button>Shop now</button>
       </form>
     <% } else if(!user) {%>
-      <form action="/shop" method="get">
+      <form action="/product/shop" method="get">
         <button>Shop now</button>
       </form>
     <% } %>
@@ -55,7 +55,7 @@
       <% if(featuredProducts) { %>
         <% for(const product of featuredProducts) { %>
           <div class="pro">
-            <img src="/<%=product.image%>" alt="" />
+            <img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" />
             <div class="des">
               <span><%=product.brand%></span>
               <h5><%=product.title%></h5>
@@ -94,11 +94,11 @@
       <% if(featuredProducts) { %>
         <% for(const product of newProducts) { %>
           <div class="pro">
-            <img src="/<%=product.image%>" alt="" />
+            <img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" />
             <div class="des">
               <span><%=product.brand%></span>
               <h5><%=product.title%></h5>
-              <% if(user && !user.isAdmin) { %>
+              <% if(!user || (user && !user.isAdmin)) { %>
                 <div class="star">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
