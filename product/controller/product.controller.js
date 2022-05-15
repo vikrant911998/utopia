@@ -14,6 +14,18 @@ exports.getIndexPage = async (req, res) => {
   });
 };
 
+exports.getShopPage = async (req, res) => {
+  const dbProducts = await ProductModel.findAll({ });
+  const products = dbProducts.map((product) => product.dataValues);
+  res.render("product/shop", {
+    pageTitle: "Shop | Utopia",
+    path: "/product/shop",
+    isLogin: req.session.isLogin,
+    user: req.session.user,
+    products,
+  });
+};
+
 exports.getAddProductPage = (req, res) => {
   res.render("product/add", {
     pageTitle: "Add Product | Utopia",

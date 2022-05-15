@@ -7,6 +7,7 @@ const {
   postDeleteProduct,
   getEditProduct,
   postUpdateProduct,
+  getShopPage,
 } = require("../controller/product.controller");
 const {
   registerOnHeadersListener,
@@ -14,6 +15,8 @@ const {
 const { isAuth } = require("../../common/middleware/is-auth.middleware");
 
 productRouter.get("/", registerOnHeadersListener, getIndexPage);
+
+productRouter.get("/shop" , registerOnHeadersListener, getShopPage);
 
 productRouter.get(
   "/product/add",

@@ -1,0 +1,42 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/products/shop.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs')%>
+
+  <section id="page-header">
+    <h2>#Stayhome</h2>
+    <p>Save more with coupons & up to 70% off!</p>
+  </section>
+
+  <section id="product1" class="section-p1">
+    <div class="pro-container">
+      
+      <% if(products) { %>
+        <% for(const product of products) { %>
+          <div class="pro">
+            <img src="/<%=product.image%>" alt="" />
+            <div class="des">
+              <span><%=product.brand%></span>
+              <h5><a href="/product?id=<%=product.id%>"><%=product.title%></a></h5>
+              <% if(!user || (user && !user.isAdmin)) { %>
+                <div class="star">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              <% } %>
+              <h4>&#x20B9; <%=product.price%></h4>
+            </div>
+            <% if(user && !user.isAdmin) { %>
+              <a href="#"><i class="fas fa-cart-plus cart"></i></a>
+            <% } %>
+          </div>
+        <% } %>
+      <% } %>
+
+    </div>
+  </section>
+<%- include('../includes/footer.ejs')%>
