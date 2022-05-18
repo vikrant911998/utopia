@@ -55,7 +55,7 @@
       <% if(featuredProducts) { %>
         <% for(const product of featuredProducts) { %>
           <div class="pro">
-            <img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" />
+            <a href="/product/single-product-page?id=<%=product.id%>"><img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" /></a>
             <div class="des">
               <span><%=product.brand%></span>
               <h5><%=product.title%></h5>
@@ -71,7 +71,10 @@
               <h4>&#x20B9; <%=product.price%></h4>
             </div>
             <% if(user && !user.isAdmin) { %>
-              <a href="#"><i class="fas fa-cart-plus cart"></i></a>
+              <form action="/cart/add" method="post">
+                <input type="hidden" name="productId" value="<%=product.id%>">
+                <button class="cart" style="cursor: pointer;"><i class="fas fa-cart-plus"></i></button>
+              </form>
             <% } %>
           </div>
         <% } %>
@@ -94,7 +97,7 @@
       <% if(featuredProducts) { %>
         <% for(const product of newProducts) { %>
           <div class="pro">
-            <img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" />
+            <a href="/product/single-product-page?id=<%=product.id%>"><img src="/<%=product.image%>" style="max-height: 270px; height: 270px;" alt="" /></a>
             <div class="des">
               <span><%=product.brand%></span>
               <h5><%=product.title%></h5>
@@ -110,7 +113,10 @@
               <h4>&#x20B9; <%=product.price%></h4>
             </div>
             <% if(user && !user.isAdmin) { %>
-              <a href="#"><i class="fas fa-cart-plus cart"></i></a>
+              <form action="/cart/add" method="post">
+                <input type="hidden" name="productId" value="<%=product.id%>">
+                <button class="cart" style="cursor: pointer;"><i class="fas fa-cart-plus"></i></button>
+              </form>
             <% } %>
           </div>
         <% } %>

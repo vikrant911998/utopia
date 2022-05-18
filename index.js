@@ -13,9 +13,11 @@ const fileUploadConfig = require("./configs/fileUpload.config");
 // Routes
 const authRoutes = require("./auth/routes/auth.route");
 const productRoutes = require("./product/routes/product.route");
+const cartRoutes = require("./cart/routes/cart.route");
 // Models
 const User = require("./auth/model/auth.model");
 const Product = require("./product/model/product.model");
+const Cart = require("./cart/model/cart.model");
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
@@ -24,11 +26,14 @@ sessionConfig(UtopiaApp);
 fileUploadConfig(UtopiaApp);
 UtopiaApp.use("/auth", authRoutes);
 UtopiaApp.use(productRoutes);
+UtopiaApp.use("/cart", cartRoutes);
 
 const debugLog = debug("utopia:index");
 
 Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);
+Cart.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+User.hasOne(Cart);
 
 UtopiaApp.use((req, res) => {
   res.render('error', {

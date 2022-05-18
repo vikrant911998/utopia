@@ -142,3 +142,16 @@ exports.postUpdateProduct = async (req, res) => {
   }
 
 };
+
+exports.getSingleProdPage = async(req,res)=>{
+  const { id } = req.query;
+  const dbProducts = await ProductModel.findAll({ where: { id } });
+  const products = dbProducts.map((product) => product.dataValues);
+  res.render("product/single-page", {
+    pageTitle: "Single Product | Utopia",
+    isLogin: req.session.isLogin,
+    user: req.session.user,
+    product: products[0],
+    path: "product/edit",
+  });
+}

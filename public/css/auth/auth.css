@@ -96,14 +96,20 @@ body {
 
 .wrapper.utopia-login .right .btn {
   margin-top: 20px;
-  background: #088178;
+  background: #7bc4bf;
   padding: 10px;
   text-align: center;
+  border-radius: 5px;
   text-transform: uppercase;
   letter-spacing: 3px;
   font-weight: bold;
   border: none;
   cursor: pointer;
+  transition: 500ms all;
+}
+
+.wrapper.utopia-login .right .btn:hover{
+  background-color: #088178;
 }
 
 .wrapper.utopia-login .right .btn span {

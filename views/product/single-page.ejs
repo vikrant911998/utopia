@@ -1,0 +1,26 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/products/single-page.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs')%>
+  <section id="product-detail">
+    <div class="single-prod-image">
+      <img
+        src="/<%=product.image%>"
+        style="width: 100%"
+        id="main-img"
+        alt=""
+      />
+    </div>
+
+    <div class="single-prod-detail">
+      <h4><%=product.title%></h4>
+      <p><%=product.brand%></p>
+      <h2>&#x20B9; <%=product.price%></h2>
+      <button>Add To Cart</button>
+      <h4>Product Description</h4>
+      <span><%=product.description%></span>
+    </div>
+  </section>
+  <%- include('../includes/footer.ejs')%>
+  

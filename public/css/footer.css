@@ -12,7 +12,8 @@ footer .col {
 }
 
 footer .logo {
-  margin: 30px;
+  margin-bottom: 20px;
+  max-width: 140px;
 }
 
 footer h4 {

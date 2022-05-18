@@ -8,6 +8,7 @@ const {
   getEditProduct,
   postUpdateProduct,
   getShopPage,
+  getSingleProdPage,
 } = require("../controller/product.controller");
 const {
   registerOnHeadersListener,
@@ -33,6 +34,8 @@ productRouter.get(
   isAuth,
   getProductListPage
 );
+
+productRouter.get("/product/single-product-page" ,registerOnHeadersListener,getSingleProdPage)
 
 productRouter.post("/product/add", registerOnHeadersListener, postAddProduct);
 
