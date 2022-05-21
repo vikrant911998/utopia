@@ -190,7 +190,14 @@
   color: #ef3636;
 }
 
-#banner button:hover {
+#banner a{
+  background-color: #79b8b3;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+#banner a:hover {
   background: #088178;
   color: #fff;
 }

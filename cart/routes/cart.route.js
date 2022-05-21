@@ -3,9 +3,11 @@ const {
   registerOnHeadersListener,
 } = require("../../common/middleware/common.middleware");
 const { isAuth } = require("../../common/middleware/is-auth.middleware");
-const { addProductInCart } = require("../controller/cart.controller");
+const { addProductInCart, getCartPage, deleteProductInCart } = require("../controller/cart.controller");
 
-cartRouter.get('/', registerOnHeadersListener, isAuth,);
+cartRouter.get('/', registerOnHeadersListener, isAuth, getCartPage);
+
+cartRouter.post('/delete', registerOnHeadersListener, isAuth, deleteProductInCart);
 
 cartRouter.post('/add', registerOnHeadersListener, isAuth, addProductInCart);
 

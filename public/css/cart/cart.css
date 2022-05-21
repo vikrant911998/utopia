@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+  margin: 0;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+  margin: 0;
+}
+
+h4 {
+  font-size: 20px;
+  color: #222;
+  margin: 0;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+button.white {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 18px;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #fff;
+  outline: none;
+  transition: 0.2s;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+}
+
+
+#page-header {
+  background-image: url("/images/banner/b11.jpg");
+  height: 50vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 14px;
+}
+
+#page-header h2,
+#page-header p {
+  color: #fff;
+}
+
+#cart table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+#cart table img {
+  width: 70px;
+}
+
+#cart table td:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+#cart table td:nth-child(2),
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6) {
+  width: 150px;
+  text-align: center;
+}
+#cart table td:nth-child(3) {
+  width: 250px;
+  text-align: center;
+}
+
+#cart table thead {
+  border: 1px solid #e2e9e1;
+  border-left: none;
+  border-right: none;
+}
+
+#cart table thead td {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 18px 0;
+}
+
+#cart table tbody td {
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+#cart table tbody td .btn-icon {
+  font-size: 16px;
+  color: red;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#subtotal {
+  max-width: 560px;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 30px;
+  border: 1px solid #e2e9e1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#subtotal h3 {
+  padding-bottom: 15px;
+}
+
+#subtotal table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#subtotal table td {
+  width: 50%;
+  border: 1px solid #e2e9e1;
+  padding: 10px;
+  font-size: 14px;
+}
+
+#subtotal button {
+  margin-top: 20px;
+  color: #fff;
+  background: #7bc4bf;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: bold;
+  transition: 500ms all;
+  cursor: pointer;
+}
+
+#subtotal button:hover {
+  background-color: #088178;
+}

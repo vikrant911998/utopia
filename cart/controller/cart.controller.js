@@ -1,6 +1,44 @@
 const ProductModel = require("../../product/model/product.model");
 const CartModel = require("../model/cart.model");
 
+
+exports.getCartPage = async (req, res) => {
+  const userId = req.session.user.id;
+  const dbCart = await CartModel.findOne({ where: { userId } });
+  const cart = dbCart.dataValues;
+  const products = JSON.parse(cart.products);
+  res.render("cart/cart", {
+    pageTitle: "Cart | Utopia",
+    products,
+    path: "cart",
+    isLogin: req.session.isLogin,
+    user: req.session.user,
+    totalPrice: cart.totalPrice
+  });
+}
+
+exports.deleteProductInCart = async (req, res) => {
+  const userId = req.session.user.id;
+  const productId = req.body.productId;
+  const cart = await CartModel.findOne({ where: { userId } });
+  try {
+    const previousCart = cart.dataValues;
+    const previousProducts = JSON.parse(previousCart.products);
+    const index = previousProducts.findIndex(pd=>pd.id == productId);
+    const productToDelete = previousProducts[index];
+    const totalPrice = previousCart.totalPrice - (productToDelete.price * productToDelete.qty);
+    previousProducts.splice(index, 1);
+    await CartModel.update({
+      products: JSON.stringify([...previousProducts]),
+      totalPrice: totalPrice,
+      userId: userId,
+    }, { where : { userId: userId }});
+    res.redirect('/cart');
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 exports.addProductInCart = async (req, res) => {
   const userId = req.session.user.id;
   const productId = req.body.productId;
@@ -15,7 +53,7 @@ exports.addProductInCart = async (req, res) => {
         totalPrice: product.price,
         userId: userId,
       });
-      res.redirect('/product/shop');
+      res.redirect('/cart');
     } else if (cart) {
       const previousCart = cart.dataValues;
       const previousProducts = JSON.parse(previousCart.products);
@@ -33,7 +71,7 @@ exports.addProductInCart = async (req, res) => {
           totalPrice: totalPrice,
           userId: userId,
         }, { where : { userId: userId }});
-        res.redirect('/product/shop');
+        res.redirect('/cart');
       } else {
         
         previousProducts[index].qty += 1;
@@ -46,7 +84,7 @@ exports.addProductInCart = async (req, res) => {
           totalPrice: totalPrice,
           userId: userId,
         }, { where : { userId: userId }});
-        res.redirect('/product/shop');
+        res.redirect('/cart');
       }
     }
   } catch (error) {
