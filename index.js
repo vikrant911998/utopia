@@ -14,10 +14,13 @@ const fileUploadConfig = require("./configs/fileUpload.config");
 const authRoutes = require("./auth/routes/auth.route");
 const productRoutes = require("./product/routes/product.route");
 const cartRoutes = require("./cart/routes/cart.route");
+const orderRoutes = require("./order/routes/order.route")
+const commonRoutes = require('./common/routes/common.route')
 // Models
 const User = require("./auth/model/auth.model");
 const Product = require("./product/model/product.model");
 const Cart = require("./cart/model/cart.model");
+const Order = require("./order/model/order.model");
 
 const UtopiaApp = express();
 loggerConfig(UtopiaApp);
@@ -27,6 +30,8 @@ fileUploadConfig(UtopiaApp);
 UtopiaApp.use("/auth", authRoutes);
 UtopiaApp.use(productRoutes);
 UtopiaApp.use("/cart", cartRoutes);
+UtopiaApp.use("/order", orderRoutes);
+UtopiaApp.use(commonRoutes);
 
 const debugLog = debug("utopia:index");
 
@@ -34,6 +39,8 @@ Product.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasMany(Product);
 Cart.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 User.hasOne(Cart);
+Order.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+User.hasMany(Order);
 
 UtopiaApp.use((req, res) => {
   res.render('error', {

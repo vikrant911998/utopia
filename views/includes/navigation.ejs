@@ -7,29 +7,33 @@
       </li>
 
       <% if(user && user.isAdmin) { %>
-      <li><a class="<%= path === '/product/add' ? 'active' : '' %>" href="/product/add">Add Product</a></li>
-      <li><a class="<%= path === '/product/list' ? 'active' : '' %>" href="/product/list">Product List</a></li>
+        <li><a class="<%= path === '/product/add' ? 'active' : '' %>" href="/product/add">Add Product</a></li>
+        <li><a class="<%= path === '/product/list' ? 'active' : '' %>" href="/product/list">Product List</a></li>
       <% } else { %>
-      <li><a class="<%= path === '/product/shop' ? 'active' : '' %>" href="/product/shop">Shop</a></li>
+        <li><a class="<%= path === '/product/shop' ? 'active' : '' %>" href="/product/shop">Shop</a></li>
       <% } %>
 
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a class="<%= path === 'blog' ? 'active' : '' %>" href="/blog">Blog</a></li>
+      <li><a class="<%= path === 'about' ? 'active' : '' %>" href="/about">About</a></li>
+      <li><a class="<%= path === 'contact' ? 'active' : '' %>" href="/contact">Contact</a></li>
 
       <% if(user && !user.isAdmin) { %>
-      <li>
-        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-      </li>
-      <% }%>
+        <li>
+          <a class="<%= path === 'order' ? 'active' : '' %>" href="/order">Orders</a>
+        </li>
+        <li>
+          <a class="<%= path === 'cart' ? 'active' : '' %>" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+      <% } %>
 
       <% if(!isLogin) { %>
-      <li><a class="auth" href="/auth"><i class="fas fa-sign-in-alt"></i></a></li>
+        <li><a class="auth" href="/auth"><i class="fas fa-sign-in-alt"></i></a></li>
       <% } else { %>
-      <li>
-        <form action="/auth/logout" method="post">
-          <button class="auth"><i class="fas fa-sign-out-alt"></i></button>
-        </form>
-      </li>
+        <li>
+          <form action="/auth/logout" method="post">
+            <button class="auth"><i class="fas fa-sign-out-alt"></i></button>
+          </form>
+        </li>
       <% } %>
     </ul>
   </div>

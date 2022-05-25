@@ -1,0 +1,36 @@
+<%- include('../includes/header.ejs')%>
+  <link rel="stylesheet" href="/css/order/order.css">
+</head>
+<body>
+  <%- include('../includes/navigation.ejs')%>
+
+  <section id="page-header">
+    <h2>#order</h2>
+  </section>
+
+  <section class="section-p1" id="cart">
+    <table width="100%">
+      <thead>
+        <tr>
+          <td>Order no.</td>
+          <td>order id</td>
+          <td>Quantity</td>
+          <td>Total Price</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% let count = 1; %>
+        <% for (let order of orders) { %>
+          <tr>
+            <td><%=count%> .</td>
+            <td>#<%=order.orderId%></td>
+            <td><%=order.products.length%></td>
+            <td><%=order.totalPrice%></td>
+          </tr>
+        <% count++; %>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+
+<%- include('../includes/footer.ejs')%>  

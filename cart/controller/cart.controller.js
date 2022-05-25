@@ -13,7 +13,8 @@ exports.getCartPage = async (req, res) => {
     path: "cart",
     isLogin: req.session.isLogin,
     user: req.session.user,
-    totalPrice: cart.totalPrice
+    totalPrice: cart.totalPrice,
+    cartId: cart.id,
   });
 }
 
@@ -89,5 +90,16 @@ exports.addProductInCart = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+exports.clearCart = async (userId) => {
+  try {
+    await CartModel.update({
+      totalPrice: 0,
+      products: JSON.stringify([]),
+    }, { where: { userId }})
+  } catch (error) {
+    
   }
 };

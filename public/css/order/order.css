@@ -1,0 +1,68 @@
+
+#page-header {
+  background-image: url("/images/banner/b5.jpeg");
+  height: 45vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 14px;
+}
+
+#page-header h2 {
+  color: #fff;
+}
+
+#cart table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  white-space: nowrap;
+  margin-bottom: 9rem;
+}
+
+#cart table img {
+  width: 70px;
+}
+
+#cart table td:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+#cart table td:nth-child(3),
+#cart table td:nth-child(4) {
+  width: 150px;
+  text-align: center;
+}
+#cart table td:nth-child(2) {
+  width: 300px;
+  text-align: center;
+}
+
+#cart table thead {
+  border: 1px solid #e2e9e1;
+  border-left: none;
+  border-right: none;
+}
+
+#cart table thead td {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 18px 0;
+}
+
+#cart table tbody td {
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+#cart table tbody td .btn-icon {
+  font-size: 16px;
+  color: red;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
